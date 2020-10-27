@@ -31,13 +31,13 @@ export default {
   },
   mounted() {
     this.idArticles = this.$route.query.id
-    this.getDataArticles()
+    this.getCurrentArticles()
   },
   methods: {
-    getDataArticles() {
+    getCurrentArticles() {
       axios.get(`https://beritaku-api.herokuapp.com/articles/${this.idArticles}`)
       .then(res => {
-        this.getDataArticles = res.data
+        this.currentArticles = res.data
       })
       .catch(err => {
         console.log(err);
