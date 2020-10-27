@@ -25,16 +25,23 @@ export default {
   },
   data() {
     return {
-      currentArticles: {}
+      currentArticles: {},
+      idArticles: 0
     }
   },
   mounted() {
-    this.getDataArticles();
+    this.idArticles = this.$route.query.id
+    this.getDataArticles()
   },
   methods: {
     getDataArticles() {
-      this.currentArticles = JSON.parse(localStorage.getItem('currentNews'))
-      console.log(JSON.parse(localStorage.getItem('currentNews')));
+      axios.get(`https://beritaku-api.herokuapp.com/articles/${this.idArticles}`)
+      .then(res => {
+        this.getDataArticles = res.data
+      })
+      .catch(err => {
+        console.log(err);
+      })
     }
   }
 }
