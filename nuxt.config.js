@@ -41,7 +41,7 @@ export default {
   */
   buildModules: [
   ],
-  router: {base: '/Newsbaru/'},
+  router: {base: '/news-baru/'},
   /*
   ** Nuxt.js modules
   */

@@ -36,7 +36,6 @@ export default {
       dataArticles: [],
       articles: [],
       current: 3,
-      isOpen: true,
     };
   },
   mounted() {
@@ -46,13 +45,14 @@ export default {
     getDataArticles() {
       axios
         .get(
-          "http://newsapi.org/v2/top-headlines?country=id&apiKey=a050e54685b44bf89ec55dbb472ee1d2"
+          'https://beritaku-api.herokuapp.com/articles'
         )
-        .then((res) => {
-          this.dataArticles = res.data.articles;
-          res.data.articles.map((item, key) => {
+        .then(res => {
+          console.log(res);
+          this.dataArticles = res.data
+          res.data.map((item, key) => {
             if (item.description !== null && this.articles.length < 3) {
-              this.articles.push(item);
+              this.articles.push(item)
             }
           });
         })
@@ -71,8 +71,7 @@ export default {
       });
     },
     openNews(item) {
-      localStorage.setItem('currentNews', JSON.stringify(item))
-      this.$router.push('detail')
+      this.$router.push(`/detail?id=${item.id}`)
     }
   },
 };
