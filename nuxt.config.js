@@ -41,7 +41,7 @@ export default {
   */
   buildModules: [
   ],
-  router: {base: '/newsitu-berita/'},
+  router: {base: '/newsituberita/'},
   /*
   ** Nuxt.js modules
   */
