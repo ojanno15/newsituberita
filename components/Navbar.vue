@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-    <a class="navbar-brand" href="/">MyNews</a>
+    <a class="navbar-brand" href="/newsituberita">MyNews</a>
     <button
       class="navbar-toggler"
       type="button"
